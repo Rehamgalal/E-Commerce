@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="product"
+            type="com.scan.e_commerce.presentation.ProductUiState.ProductModel" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_250sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@color/design_default_color_on_primary">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/productImage"
+        app:imageUrl="@{product.imageUrls[0]}"
+        app:layout_constraintTop_toTopOf="parent"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/productName"
+            android:text="@{product.name}"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold"
+            android:gravity="center"
+            app:layout_constraintVertical_chainStyle="spread"
+            app:layout_constraintTop_toBottomOf="@id/productImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/productPrice"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/productPrice"
+        android:text="@{product.price}"
+        android:textSize="@dimen/_13ssp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/productName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/createdAt"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/createdAt"
+        android:text="@{product.createdAt}"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/productPrice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
